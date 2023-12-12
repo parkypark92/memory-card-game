@@ -1,0 +1,15 @@
+.game-page {
+  width: 100%;
+  min-height: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-display {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
