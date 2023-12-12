@@ -1,0 +1,15 @@
+.start-page {
+  flex-direction: column;
+  gap: 50px;
+}
+
+.start-message {
+  max-width: 700px;
+  text-align: center;
+}
+
+.start-button {
+  height: 50px;
+  width: 200px;
+  background-color: #f79c9c;
+}
