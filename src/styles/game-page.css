@@ -20,4 +20,5 @@
   width: 200px;
   background-color: #fa7474;
   border-radius: 15px;
+  background-size: contain;
 }

@@ -1,28 +1,19 @@
-import Card from "../components/Card";
+import { useState } from "react";
+import CardDisplay from "../components/CardDisplay";
 
 export default function GamePage() {
-  const id = 2;
-  async function getPokemon(id) {
-    if (id in localStorage) {
-      console.log("retrieved");
-    } else {
-      const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`);
-      const data = await response.json();
-      localStorage.setItem(id, data.sprites.front_default);
-      console.log("cached");
-    }
-  }
+  const [currentPokemon, setCurrentPokemon] = useState([]);
+  const numberOfCards = 6;
+
+  const handleCurrentPokemon = (array) => setCurrentPokemon(array);
 
   return (
     <div className="game-page">
-      <div className="card-display">
-        <Card handleClick={() => getPokemon(id)}></Card>
-        <Card></Card>
-        <Card></Card>
-        <Card></Card>
-        <Card></Card>
-        <Card></Card>
-      </div>
+      <CardDisplay
+        numberOfCards={numberOfCards}
+        currentPokemon={currentPokemon}
+        handleCurrentPokemon={handleCurrentPokemon}
+      ></CardDisplay>
     </div>
   );
 }
