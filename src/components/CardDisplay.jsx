@@ -6,7 +6,10 @@ export default function CardDisplay({
   currentPokemon,
   handleCurrentPokemon,
 }) {
-  console.log(currentPokemon);
+  if (currentPokemon.length === 0) {
+    getRandomPokemon();
+  }
+
   async function getRandomPokemon() {
     const randomIds = [];
     while (randomIds.length < numberOfCards) {
@@ -34,9 +37,14 @@ export default function CardDisplay({
   return (
     <div className="card-display">
       {currentPokemon.map((pokemon, index) => {
-        return <Card backgroundImage={pokemon} key={index}></Card>;
+        return (
+          <Card
+            backgroundImage={pokemon}
+            key={index}
+            handleClick={getRandomPokemon}
+          ></Card>
+        );
       })}
-      <button onClick={getRandomPokemon}></button>
     </div>
   );
 }
