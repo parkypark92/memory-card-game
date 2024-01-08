@@ -5,6 +5,8 @@ export default function CardDisplay({
   numberOfCards,
   currentPokemon,
   handleCurrentPokemon,
+  currentScore,
+  setCurrentScore,
 }) {
   if (currentPokemon.length === 0) {
     getRandomPokemon();
@@ -18,12 +20,12 @@ export default function CardDisplay({
         randomIds.push(randomId);
       }
     }
-    await Promise.all(randomIds.map(getPokemon)).then((result) => {
+    await Promise.all(randomIds.map(fetchPokemon)).then((result) => {
       handleCurrentPokemon(result);
     });
   }
 
-  async function getPokemon(id) {
+  async function fetchPokemon(id) {
     if (`pokeImage${id}` in localStorage) {
       return localStorage.getItem(`pokeImage${id}`);
     } else {
@@ -34,6 +36,12 @@ export default function CardDisplay({
     }
   }
 
+  function handleCardClick() {
+    getRandomPokemon();
+    setCurrentScore(currentScore + 1);
+    console.log("card click");
+  }
+
   return (
     <div className="card-display">
       {currentPokemon.map((pokemon, index) => {
@@ -41,7 +49,7 @@ export default function CardDisplay({
           <Card
             backgroundImage={pokemon}
             key={index}
-            handleClick={getRandomPokemon}
+            handleClick={handleCardClick}
           ></Card>
         );
       })}

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import CardDisplay from "../components/CardDisplay";
 
-export default function GamePage() {
+export default function GamePage({ currentScore, setCurrentScore }) {
   const [currentPokemon, setCurrentPokemon] = useState([]);
   const numberOfCards = 6;
 
@@ -13,6 +13,8 @@ export default function GamePage() {
         numberOfCards={numberOfCards}
         currentPokemon={currentPokemon}
         handleCurrentPokemon={handleCurrentPokemon}
+        currentScore={currentScore}
+        setCurrentScore={setCurrentScore}
       ></CardDisplay>
     </div>
   );
