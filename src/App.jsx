@@ -10,6 +10,7 @@ import "./styles/start-page.css";
 function App() {
   const [gameStarted, setGameStarted] = useState(false);
   const [currentScore, setCurrentScore] = useState(0);
+  const [gameStatus, setGameStatus] = useState("");
 
   function startGame() {
     setGameStarted(true);
@@ -27,6 +28,8 @@ function App() {
         <GamePage
           currentScore={currentScore}
           setCurrentScore={setCurrentScore}
+          gameStatus={gameStatus}
+          setGameStatus={setGameStatus}
         ></GamePage>
       )}
     </div>

@@ -7,6 +7,7 @@ export default function CardDisplay({
   handleCurrentPokemon,
   currentScore,
   setCurrentScore,
+  setGameStatus,
 }) {
   if (currentPokemon.length === 0) {
     getRandomPokemon();
@@ -27,29 +28,51 @@ export default function CardDisplay({
 
   async function fetchPokemon(id) {
     if (`pokeImage${id}` in localStorage) {
-      return localStorage.getItem(`pokeImage${id}`);
+      return JSON.parse(localStorage.getItem(`pokeImage${id}`));
     } else {
       const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`);
       const data = await response.json();
-      localStorage.setItem(`pokeImage${id}`, data.sprites.front_default);
-      return data.sprites.front_default;
+      localStorage.setItem(
+        `pokeImage${id}`,
+        JSON.stringify({
+          image: data.sprites.front_default,
+          id: data.id,
+          clicked: false,
+        })
+      );
+      return { image: data.sprites.front_default, id: data.id, clicked: false };
     }
   }
 
-  function handleCardClick() {
+  function updateClickedStatus(e) {
+    const pokeID = e.target.getAttribute("data-id");
+    const cardToUpdate = JSON.parse(localStorage.getItem(`pokeImage${pokeID}`));
+    cardToUpdate.clicked = true;
+    localStorage.setItem(`pokeImage${pokeID}`, JSON.stringify(cardToUpdate));
+  }
+
+  function handleCardClick(e) {
+    const clickedCard = JSON.parse(
+      localStorage.getItem(`pokeImage${e.target.getAttribute("data-id")}`)
+    );
+    if (clickedCard.clicked) {
+      setGameStatus("lose");
+      return;
+    }
     getRandomPokemon();
+    updateClickedStatus(e);
     setCurrentScore(currentScore + 1);
-    console.log("card click");
   }
 
   return (
     <div className="card-display">
-      {currentPokemon.map((pokemon, index) => {
+      {currentPokemon.map((pokemon) => {
         return (
           <Card
-            backgroundImage={pokemon}
-            key={index}
+            backgroundImage={pokemon.image}
+            key={pokemon.id}
             handleClick={handleCardClick}
+            dataID={pokemon.id}
           ></Card>
         );
       })}
