@@ -1,10 +1,8 @@
-export default function LosePage() {
-  for (let i = 1; i <= 150; i++) {
-    if (`pokeImage${i}` in localStorage) {
-      const obj = JSON.parse(localStorage.getItem(`pokeImage${i}`));
-      obj.clicked = false;
-      localStorage.setItem(`pokeImage${i}`, JSON.stringify(obj));
-    }
-  }
-  return <h1>LOSER</h1>;
+export default function LosePage({ handleReplay }) {
+  return (
+    <div>
+      <h1>LOSER</h1>
+      <button onClick={handleReplay}>Replay</button>
+    </div>
+  );
 }

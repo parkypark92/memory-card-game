@@ -7,6 +7,7 @@ export default function GamePage({
   setCurrentScore,
   gameStatus,
   setGameStatus,
+  handleReplay,
 }) {
   const [currentPokemon, setCurrentPokemon] = useState([]);
   const numberOfCards = 6;
@@ -18,7 +19,7 @@ export default function GamePage({
   return (
     <div className="game-page">
       {gameStatus === "lose" ? (
-        <LosePage></LosePage>
+        <LosePage handleReplay={handleReplay}></LosePage>
       ) : (
         <CardDisplay
           numberOfCards={numberOfCards}

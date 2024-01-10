@@ -16,6 +16,22 @@ function App() {
     setGameStarted(true);
   }
 
+  function resetGame() {
+    removeClickedStatus();
+    setCurrentScore(0);
+    setGameStatus("");
+  }
+
+  function removeClickedStatus() {
+    for (let i = 1; i <= 150; i++) {
+      if (`pokeImage${i}` in localStorage) {
+        const obj = JSON.parse(localStorage.getItem(`pokeImage${i}`));
+        obj.clicked = false;
+        localStorage.setItem(`pokeImage${i}`, JSON.stringify(obj));
+      }
+    }
+  }
+
   return (
     <div className="page-background">
       <Header
@@ -30,6 +46,7 @@ function App() {
           setCurrentScore={setCurrentScore}
           gameStatus={gameStatus}
           setGameStatus={setGameStatus}
+          handleReplay={resetGame}
         ></GamePage>
       )}
     </div>
