@@ -14,6 +14,7 @@ export default function CardDisplay({
   }
 
   async function getRandomPokemon() {
+    if (currentScore === 150) return;
     const randomIds = [];
     while (randomIds.length < numberOfCards) {
       const randomId = randomNumber(150);
@@ -22,7 +23,18 @@ export default function CardDisplay({
       }
     }
     await Promise.all(randomIds.map(fetchPokemon)).then((result) => {
-      handleCurrentPokemon(result);
+      let counter = 0;
+      for (let object of result) {
+        if (object.clicked) {
+          counter++;
+        }
+      }
+      // console.log(counter);
+      if (counter === result.length) {
+        getRandomPokemon();
+      } else {
+        handleCurrentPokemon(result);
+      }
     });
   }
 
@@ -59,7 +71,6 @@ export default function CardDisplay({
       setGameStatus("lose");
       return;
     }
-    getRandomPokemon();
     updateClickedStatus(e);
     setCurrentScore(currentScore + 1);
   }

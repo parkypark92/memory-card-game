@@ -32,6 +32,8 @@ function App() {
     }
   }
 
+  // removeClickedStatus();
+
   return (
     <div className="page-background">
       <Header

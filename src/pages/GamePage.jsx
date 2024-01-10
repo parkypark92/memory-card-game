@@ -1,6 +1,7 @@
 import { useState } from "react";
 import CardDisplay from "../components/CardDisplay";
 import LosePage from "./LosePage";
+import WinPage from "./WinPage";
 
 export default function GamePage({
   currentScore,
@@ -18,7 +19,9 @@ export default function GamePage({
 
   return (
     <div className="game-page">
-      {gameStatus === "lose" ? (
+      {currentScore === 150 ? (
+        <WinPage></WinPage>
+      ) : gameStatus === "lose" ? (
         <LosePage handleReplay={handleReplay}></LosePage>
       ) : (
         <CardDisplay
