@@ -14,7 +14,6 @@ export default function CardDisplay({
   }
 
   async function getRandomPokemon() {
-    if (currentScore === 150) return;
     const randomIds = [];
     while (randomIds.length < numberOfCards) {
       const randomId = randomNumber(150);
@@ -29,7 +28,7 @@ export default function CardDisplay({
           counter++;
         }
       }
-      // console.log(counter);
+      console.log(counter);
       if (counter === result.length) {
         getRandomPokemon();
       } else {
@@ -73,6 +72,9 @@ export default function CardDisplay({
     }
     updateClickedStatus(e);
     setCurrentScore(currentScore + 1);
+    if (currentScore < 149) {
+      getRandomPokemon();
+    }
   }
 
   return (
