@@ -10,6 +10,7 @@ import "./styles/start-page.css";
 function App() {
   const [gameStarted, setGameStarted] = useState(false);
   const [currentScore, setCurrentScore] = useState(0);
+  const [currentPokemon, setCurrentPokemon] = useState([]);
   const [gameStatus, setGameStatus] = useState("");
 
   function startGame() {
@@ -20,6 +21,7 @@ function App() {
     removeClickedStatus();
     setCurrentScore(0);
     setGameStatus("");
+    setCurrentPokemon([]);
   }
 
   function removeClickedStatus() {
@@ -47,6 +49,8 @@ function App() {
         <GamePage
           currentScore={currentScore}
           setCurrentScore={setCurrentScore}
+          currentPokemon={currentPokemon}
+          setCurrentPokemon={setCurrentPokemon}
           gameStatus={gameStatus}
           setGameStatus={setGameStatus}
           handleReplay={resetGame}

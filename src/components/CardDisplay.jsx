@@ -4,7 +4,7 @@ import randomNumber from "../utils/random-number";
 export default function CardDisplay({
   numberOfCards,
   currentPokemon,
-  handleCurrentPokemon,
+  setCurrentPokemon,
   currentScore,
   setCurrentScore,
   setGameStatus,
@@ -32,7 +32,7 @@ export default function CardDisplay({
       if (counter === result.length) {
         getRandomPokemon();
       } else {
-        handleCurrentPokemon(result);
+        setCurrentPokemon(result);
       }
     });
   }

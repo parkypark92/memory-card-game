@@ -1,4 +1,4 @@
-import { useState } from "react";
+// import { useState } from "react";
 import CardDisplay from "../components/CardDisplay";
 import LosePage from "./LosePage";
 import WinPage from "./WinPage";
@@ -6,16 +6,13 @@ import WinPage from "./WinPage";
 export default function GamePage({
   currentScore,
   setCurrentScore,
+  currentPokemon,
+  setCurrentPokemon,
   gameStatus,
   setGameStatus,
   handleReplay,
 }) {
-  const [currentPokemon, setCurrentPokemon] = useState([]);
   const numberOfCards = 6;
-
-  const handleCurrentPokemon = (array) => {
-    setCurrentPokemon(array);
-  };
 
   return (
     <div className="game-page">
@@ -27,7 +24,7 @@ export default function GamePage({
         <CardDisplay
           numberOfCards={numberOfCards}
           currentPokemon={currentPokemon}
-          handleCurrentPokemon={handleCurrentPokemon}
+          setCurrentPokemon={setCurrentPokemon}
           currentScore={currentScore}
           setCurrentScore={setCurrentScore}
           setGameStatus={setGameStatus}

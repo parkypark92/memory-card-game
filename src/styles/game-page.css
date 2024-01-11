@@ -7,6 +7,34 @@
   justify-content: center;
 }
 
+header {
+  width: 80%;
+  margin: auto;
+}
+
+.scores {
+  padding: 30px 30px 0 30px;
+  font-size: 1.5em;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.score-ctnr {
+  display: flex;
+}
+
+.score-label {
+  width: 100px;
+  text-align: right;
+}
+
+.score-number {
+  width: 50px;
+  text-align: right;
+}
+
 .card-display {
   width: 80%;
   display: flex;

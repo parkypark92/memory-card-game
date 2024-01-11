@@ -6,9 +6,15 @@ export default function Header({ currentScore }) {
   }
   return (
     <header>
-      <div>
-        <p>Score: {currentScore}</p>
-        <p>Best: {highScore}</p>
+      <div className="scores">
+        <div className="score-ctnr">
+          <p className="score-label">Score: </p>
+          <p className="score-number">{currentScore}</p>
+        </div>
+        <div className="score-ctnr">
+          <p className="score-label">Best: </p>
+          <p className="score-number">{highScore}</p>
+        </div>
       </div>
     </header>
   );
