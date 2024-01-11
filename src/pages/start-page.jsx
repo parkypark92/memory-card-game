@@ -1,4 +1,6 @@
-export default function StartPage({ handleClick }) {
+export default function StartPage({ handleClick, removeClickedStatus }) {
+  removeClickedStatus();
+
   return (
     <div className="start-page">
       <h2 className="start-message">

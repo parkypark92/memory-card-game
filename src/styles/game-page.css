@@ -22,3 +22,10 @@
   border-radius: 15px;
   background-size: contain;
 }
+
+.game-result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}

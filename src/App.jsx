@@ -32,8 +32,6 @@ function App() {
     }
   }
 
-  // removeClickedStatus();
-
   return (
     <div className="page-background">
       <Header
@@ -41,7 +39,10 @@ function App() {
         setCurrentScore={setCurrentScore}
       ></Header>
       {!gameStarted ? (
-        <StartPage handleClick={startGame}></StartPage>
+        <StartPage
+          handleClick={startGame}
+          removeClickedStatus={removeClickedStatus}
+        ></StartPage>
       ) : (
         <GamePage
           currentScore={currentScore}

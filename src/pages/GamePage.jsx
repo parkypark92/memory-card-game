@@ -20,9 +20,9 @@ export default function GamePage({
   return (
     <div className="game-page">
       {currentScore === 150 ? (
-        <WinPage></WinPage>
+        <WinPage score={currentScore} handleReplay={handleReplay}></WinPage>
       ) : gameStatus === "lose" ? (
-        <LosePage handleReplay={handleReplay}></LosePage>
+        <LosePage handleReplay={handleReplay} score={currentScore}></LosePage>
       ) : (
         <CardDisplay
           numberOfCards={numberOfCards}

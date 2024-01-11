@@ -1,7 +1,7 @@
-export default function LosePage({ handleReplay }) {
+export default function LosePage({ handleReplay, score }) {
   return (
-    <div>
-      <h1>LOSER</h1>
+    <div className="game-result">
+      <h1>You caught {score} Pokemon!</h1>
       <button onClick={handleReplay}>Replay</button>
     </div>
   );
