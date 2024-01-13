@@ -28,11 +28,10 @@ export default function CardDisplay({
           counter++;
         }
       }
-      console.log(counter);
       if (counter === result.length) {
         getRandomPokemon();
       } else {
-        setCurrentPokemon(result);
+        setTimeout(() => setCurrentPokemon(result), 800);
       }
     });
   }
@@ -71,6 +70,10 @@ export default function CardDisplay({
       return;
     }
     updateClickedStatus(e);
+    const cardsToFlip = document.querySelectorAll(".card");
+    for (let card of cardsToFlip) {
+      card.classList.add("flipped");
+    }
     setCurrentScore(currentScore + 1);
     if (currentScore < 149) {
       getRandomPokemon();
