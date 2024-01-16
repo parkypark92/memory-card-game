@@ -28,6 +28,7 @@ export default function GamePage({
           currentScore={currentScore}
           setCurrentScore={setCurrentScore}
           setGameStatus={setGameStatus}
+          gameStatus={gameStatus}
         ></CardDisplay>
       )}
     </div>

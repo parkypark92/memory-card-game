@@ -15,12 +15,13 @@ function App() {
 
   function startGame() {
     setGameStarted(true);
+    setGameStatus("first-turn");
   }
 
   function resetGame() {
     removeClickedStatus();
     setCurrentScore(0);
-    setGameStatus("");
+    setGameStatus("first-turn");
     setCurrentPokemon([]);
   }
 
@@ -32,6 +33,10 @@ function App() {
         localStorage.setItem(`pokeImage${i}`, JSON.stringify(obj));
       }
     }
+  }
+
+  if (currentScore === 1 && gameStatus === "first-turn") {
+    setGameStatus("in-play");
   }
 
   return (

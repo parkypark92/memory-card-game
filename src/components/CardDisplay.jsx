@@ -10,10 +10,10 @@ export default function CardDisplay({
   setGameStatus,
 }) {
   if (currentPokemon.length === 0) {
-    getRandomPokemon();
+    getRandomPokemon(0);
   }
 
-  async function getRandomPokemon() {
+  async function getRandomPokemon(score) {
     const randomIds = [];
     while (randomIds.length < numberOfCards) {
       const randomId = randomNumber(150);
@@ -30,6 +30,8 @@ export default function CardDisplay({
       }
       if (counter === result.length) {
         getRandomPokemon();
+      } else if (score < 1) {
+        setCurrentPokemon(result);
       } else {
         setTimeout(() => setCurrentPokemon(result), 800);
       }
@@ -76,7 +78,7 @@ export default function CardDisplay({
     }
     setCurrentScore(currentScore + 1);
     if (currentScore < 149) {
-      getRandomPokemon();
+      getRandomPokemon(currentScore + 1);
     }
   }
 
