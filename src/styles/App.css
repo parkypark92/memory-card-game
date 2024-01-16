@@ -5,5 +5,22 @@
 .page-background {
   width: 100%;
   min-height: 100vh;
-  background-color: #f8dcdc;
+  background-image: url(../assets/images/background_prairie_pokemon.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+header {
+  position: relative;
+  display: flex;
+  justify-content: right;
+  padding: 30px 0 0 0;
+  width: 80%;
+  margin: 0 auto;
+}
+
+h1 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }

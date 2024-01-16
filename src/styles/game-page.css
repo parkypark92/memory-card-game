@@ -8,7 +8,7 @@
 }
 
 .scores {
-  padding: 30px 10% 0 0;
+  justify-self: right;
   font-size: 1.5em;
   font-weight: bold;
   display: flex;
@@ -36,11 +36,12 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
+  margin-bottom: 102px;
 }
 
 .card-container {
   background-color: transparent;
-  width: 200px;
+  width: 220px;
   height: 300px;
   perspective: 1000px;
 }
@@ -64,9 +65,17 @@
   background-repeat: no-repeat;
 }
 
+.card:hover {
+  cursor: pointer;
+}
+
 .card-front {
-  background-color: #fa7474;
+  background-color: #d6b968;
+  border: 1px solid black;
+  outline: 1px solid black;
+  outline-offset: -5px;
   background-size: contain;
+  background-position: center;
 }
 
 .card-back {
