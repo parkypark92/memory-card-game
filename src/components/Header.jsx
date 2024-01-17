@@ -7,7 +7,7 @@ export default function Header({ currentScore }) {
   return (
     <header>
       <h1>
-        <img src="./src/assets/images/poke-memory.png" alt="" height="100px" />
+        <img src="/poke-memory.png" alt="" height="100px" />
       </h1>
       <div className="scores">
         <div className="score-ctnr">
