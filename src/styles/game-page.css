@@ -7,6 +7,13 @@
   justify-content: center;
 }
 
+.start-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
 .scores {
   justify-self: right;
   font-size: 1.5em;
@@ -94,4 +101,23 @@
   flex-direction: column;
   align-items: center;
   gap: 50px;
+}
+
+@media (max-width: 960px) {
+  .card-container {
+    width: 110px;
+    height: 150px;
+  }
+
+  .card-display {
+    margin-bottom: 350px;
+  }
+
+  .game-result {
+    margin-bottom: 400px;
+  }
+
+  .start-container {
+    margin-bottom: 400px;
+  }
 }

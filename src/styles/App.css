@@ -22,5 +22,14 @@ header {
 h1 {
   position: absolute;
   left: 50%;
+  top: 15%;
   transform: translateX(-50%);
+}
+
+@media (max-width: 960px) {
+  header {
+    height: 200px;
+    justify-content: center;
+    align-items: end;
+  }
 }
